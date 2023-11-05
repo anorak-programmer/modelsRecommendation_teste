@@ -1,0 +1,72 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFC0CB; /* Fundo rosa */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+form {
+    text-align: center;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fff; /* Altera a cor do rótulo para branco */
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap; /* Altera o comportamento para uma única linha */
+    overflow-x: auto; /* Adiciona rolagem horizontal */
+    justify-content: center; /* Centraliza as imagens horizontalmente */
+}
+
+li {
+    text-align: center;
+    color: rgb(0, 0, 0)616; /* Altera a cor do texto do filme para branco */
+}
+
+img {
+    max-width: 200px; /* Redimensiona as imagens para um tamanho máximo de 75px de largura */
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 5px; /* Espaçamento entre as imagens */
+}
+
+span {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+}

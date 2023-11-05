@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <!-- FIM GOOGLE FONTES -->
+  <!-- BOOTSTRAP ICONS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- FIM BOOTSTRAP ICONS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles3.css') }}">
+
+  <script src="menu.js" defer></script>
+
+  <title>Cinemix Movies</title>
+  
+</head>
+
+<body>
+
+  <header>
+    <div class="interface">
+      <div class="logo">
+        <a href="{{ url_for('index') }}">
+          <img src="{{ url_for('static', filename='img/Cinemix.png') }}" alt="Logo Cine Movies">
+        </a>
+      </div>
+      <!--logo-->
+
+      <nav class="menu-desktop">
+        <ul>
+          <li><a href="{{ url_for('index') }}">Início</a></li>
+          <li><a href="{{ url_for('guia') }}">Guia</a></li>
+          <li><a href="#">Sobre</a></li>
+        </ul>
+      </nav>
+
+      <div class="btn-contato">
+        <a href="{{ url_for('login') }}">
+          <button>Sair</button>
+        </a>
+      </div>
+      <!--btn-contato-->
+
+      <div class="btn-abrir-menu" id="btn-menu">
+        <i class="bi bi-list"></i>
+      </div>
+
+      <div class="menu-mobile" id="menu-mobile">
+        <div class="btn-fechar">
+          <i class="bi bi-x-lg"></i>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="guia.html">Guia</a></li>
+            <li><a href="#">Sobre</a></li>
+          </ul>
+        </nav>
+
+      </div>
+      <!--menu-mobile-->
+      <div class="overlay-menu" id="overlay-menu"></div>
+    </div>
+    <!--interface-->
+    
+  </header>
+  
+  <div class="btn-perfil">
+    <form method="POST">
+        <select id="movie" name="movie">
+            <option value="" selected disabled hidden>Selecione um filme</option>
+            {% for movie in movie_list %}
+                <option value="{{ movie }}">{{ movie }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Show Recommendation">
+    </form>
+</div>
+{% if recommended_movie_names %}
+        <h2>Recommended Movies</h2>
+        <ul>
+            {% for i in range(5) %}
+                <li>{{ recommended_movie_names[i] }}</li>
+                <img src="{{ recommended_movie_posters[i] }}" alt="Movie Poster">
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+  <main>
+    <section class="especiliadades">
+  <div class="interface">
+    <h2 class="titulo">Filmes em <span>Destaque.</span></h2>
+    <div class="flex">
+      <div class="especialidades-box">
+        <img src="{{ url_for('static', filename='img/filmes1.jpg') }}" alt="Filme 1">
+        <h3>Mercenarios</h3>
+        <p>Mercenários é um filme de ação explosivo que reúne um elenco de estrelas, incluindo Sylvester Stallone, Jason Statham e Arnold Schwarzenegger. A trama segue um grupo de mercenários contratados para derrubar um ditador impiedoso
+        </p>
+      </div>
+      <!--especialidades-box-->
+
+      <div class="especialidades-box">
+        <img src="{{ url_for('static', filename='img/filmes2.jpg') }}" alt="Filme 2">
+        <h3>Refúgio</h3>
+        <p>Refúgio é um filme emocionante que narra a jornada de um casal em uma ilha remota, buscando salvar seu casamento após uma tragédia. Com paisagens deslumbrantes e atuações envolventes de Jennifer Connelly e Anthony Mackie, o filme explora temas profundos de amor e recomeço.
+        </p>
+      </div>
+      <!--especialidades-box-->
+
+      <div class="especialidades-box">
+        <img src="{{ url_for('static', filename='img/filmes3.jpg') }}" alt="Filme 3">
+        <h3>Infiltrado</h3>
+        <p>Infiltrado é um eletrizante filme de ação e suspense que segue um policial disfarçado que se infiltra em uma perigosa gangue de narcotráfico. Com performances brilhantes de Mark Wahlberg e um enredo repleto de reviravoltas, o filme mantém a tensão do início ao fim.
+        </p>
+      </div>
+      <!--especialidades-box-->
+    </div>
+    <!--flex-->
+  </div>
+  <!--interface-->
+</section>
+    <!--especiliadades-->
+
+    <section class="sobre">
+      <div class="interface">
+        <div class="flex">
+          <div class="img-sobre">
+            <img src="images/foto.png" alt="">
+          </div>
+          
+
+          <!--txt-sobre-->
+        </div>
+        <!--flex-->
+      </div>
+      <!--interface-->
+    </section>
+
+  </main>
+
+  <!--interface
+  <div class="movie">
+    <h1>Filmes Recomendados:</h1>
+    <ul>
+        {% for movie in recommended_movies %}
+            <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+  </div>-->
+  
+  <footer>
+    <div class="interface">
+      <div class="line-footer">
+        <div class="flex">
+          <div class="logo-footer">
+            <img src="{{ url_for('static', filename='img/Cinemix.png') }}" alt="Logo Cine Movies">
+          </div>
+          <!--logo-footer-->
+          <div class=" btn-social">
+            <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+            <a href="#"><button><i class="bi bi-youtube"></i></button></a>
+            <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+          </div>
+          <!--btn-social-->
+        </div>
+      </div>
+      <!--line-footer-->
+
+      <div class="line-footer borda">
+        <p><i class="bi bi-envelope-fill"></i> <a href="aluramovies@gmail.com">contato@murilodev.com.br</a></p>
+      </div>
+      <!--line-footer-->
+    </div>
+    <!--interface-->
+  </footer>
+
+<!-- Dentro da seção <head> da página "Guia.html" -->
+<script>
+  // Função para abrir o pop-up
+  function openProfilePopup() {
+    // Crie um elemento div para o pop-up
+    const popup = document.createElement("div");
+    popup.className = "popup";
+    
+    // Carregue o conteúdo da página "perfil.html" no pop-up
+    fetch("{{ url_for('perfil') }}")
+      .then(response => response.text())
+      .then(data => {
+        popup.innerHTML = data;
+      });
+
+    // Adicione o pop-up à página
+    document.body.appendChild(popup);
+  }
+
+  // Adicione um ouvinte de evento para abrir o pop-up quando o botão for clicado
+  document.getElementById("open-profile-button").addEventListener("click", openProfilePopup);
+</script>
+
+</body>
+</html>
